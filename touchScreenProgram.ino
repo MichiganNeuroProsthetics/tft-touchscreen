@@ -113,7 +113,7 @@ void sliderInitial(bool servoControlType) {
   if (servoControlType) {
     show_string("Change Speed", 90, 200, 2, WHITE, BLACK, 1);
     show_string("0", 75, 280, 1, WHITE, BLACK, 1);
-    show_string("255", 245, 280, 1, WHITE, BLACK, 1);
+    show_string("255``", 245, 280, 1, WHITE, BLACK, 1);
   }
   else {
     show_string("Change Angle", 90, 200, 2, WHITE, BLACK, 1);
@@ -247,19 +247,19 @@ void loop() {
     }
     
     if (rgbState == 1) {
-      digitalWrite(redPin, HIGH);
-      digitalWrite(greenPin, LOW);
-      digitalWrite(bluePin, LOW);
-    }
-    else if (rgbState == 2) {
       digitalWrite(redPin, LOW);
       digitalWrite(greenPin, HIGH);
       digitalWrite(bluePin, LOW);
     }
-    else {
+    else if (rgbState == 2) {
       digitalWrite(redPin, LOW);
       digitalWrite(greenPin, LOW);
       digitalWrite(bluePin, HIGH);
+    }
+    else {
+      digitalWrite(redPin, HIGH);
+      digitalWrite(greenPin, LOW);
+      digitalWrite(bluePin, LOW);
     }
   } // if pressure is withing bounds
   delay(100);
